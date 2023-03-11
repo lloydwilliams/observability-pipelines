@@ -1,0 +1,4 @@
+.vagrant
+backup/**
+notes.txt
+vagrant/ubuntu/start-my-op-worker.sh

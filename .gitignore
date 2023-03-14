@@ -3,3 +3,4 @@ notes.txt
 vagrant/ubuntu/start-my-op-worker.sh
 
 .fake
+examples/gates-app/var/lib/observability-pipelines-worker/logs/checkpoints.json

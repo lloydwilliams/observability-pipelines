@@ -10,13 +10,15 @@ The observability-pipelines-worker needs to be given a password that you can use
 
 ![opw-bin-bash.png](images/opw-bin-bash.png)
 
-As the vagrant or root user, set a passwordd 
+As the vagrant or root user, set a password for the  `observability-pipelines-worker `  user.
 
 ```
 sudo passwd observability-pipelines-worker
 ```
 
 ![vagrant-file.png](images/vagrant-file.png)
+
+Notice that the `observability-pipelines-worker` is the owner of the mounted folder where **your log files reside on your laptop**.
 
 ```
   config.vm.synced_folder "~/GitHub/lloydwilliams/observability-pipelines/examples", "/examples",
@@ -42,7 +44,7 @@ sudo passwd observability-pipelines-worker
 vagrant up
 ```
 
-## Running the Observability Pipelines Worker:
+## Running the Observability Pipelines Worker
 
 But after it's up and running, ssh as the observability-pipelines-worker.
 
@@ -50,7 +52,11 @@ But after it's up and running, ssh as the observability-pipelines-worker.
 ssh observability-pipelines-worker@127.0.0.1 -p 2222
 ```
 
+It will prompt for the password that you created.
+
 Then inside the VM, start the Op worker, with the keys: (the /vagrant directory is mounted by default so you can use a file on your mac **from within the vagrant box**).
+
+Modify the "start-op-worker.sh" script to supply your `DD_API_KEY` and `DD_OP_CONFIG_KEY` .
 
 ```
 ./start-op-worker.sh
